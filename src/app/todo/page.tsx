@@ -1,19 +1,9 @@
 import Link from "next/link";
-import React from "react";
-import { prisma } from "../db";
 import { TodoItem } from "../components/TodoItem";
+import toggleTodo from "../utils/toggleTodo";
+import getTodos from "../utils/getTodos";
 
-function getTodos() {
-  return prisma.toDo.findMany();
-}
-
-async function toggleTodo(id: string, complete: boolean) {
-  "use server";
-
-  await prisma.toDo.update({ where: { id }, data: { complete } });
-}
-
-export default async function todo() {
+export default async function Todo() {
   const todos = await getTodos();
 
   return (

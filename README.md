@@ -16,3 +16,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 npm i prisma --save-dev
 npx prisma init --datasource-provider sqlite
+npm install next@canary

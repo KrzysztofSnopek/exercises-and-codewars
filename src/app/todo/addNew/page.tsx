@@ -1,21 +1,6 @@
-import { prisma } from "@/app/db";
-import { redirect } from "next/navigation";
 import Link from "next/link";
 import React from "react";
-
-async function createToDo(data: FormData) {
-  "use server";
-
-  const title = data.get("title")?.valueOf();
-
-  if (typeof title !== "string" || title.length === 0) {
-    throw new Error("Invalid Title");
-  }
-
-  await prisma.toDo.create({ data: { title, complete: false } });
-
-  redirect("/todo");
-}
+import createTodo from "@/app/utils/createTodo";
 
 export default function AddNew() {
   return (
@@ -23,7 +8,7 @@ export default function AddNew() {
       <header className="flex justify-between items-center mb-4">
         <h1 className="text-2xl">Create new</h1>
       </header>
-      <form action={createToDo} className="flex gap-2 flex-col">
+      <form action={createTodo} className="flex gap-2 flex-col">
         <input
           type="text"
           name="title"
