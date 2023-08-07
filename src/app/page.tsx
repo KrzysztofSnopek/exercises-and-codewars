@@ -11,6 +11,12 @@ export default function Home() {
           <li>
             <Link href="/todo">Checking next.js out with todo list</Link>
           </li>
+          <li>
+            <Link href="/changeCount">
+              Function counting amount of possible change outcomes given the
+              number and an array of coin denominations
+            </Link>
+          </li>
         </ul>
       </div>
     </>
