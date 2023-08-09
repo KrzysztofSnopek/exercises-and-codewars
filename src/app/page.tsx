@@ -17,6 +17,11 @@ export default function Home() {
               number and an array of coin denominations
             </Link>
           </li>
+          <li>
+            <Link href="/refTasks">
+              Completing tasks with useRef as a main topic
+            </Link>
+          </li>
         </ul>
       </div>
     </>

@@ -8,6 +8,11 @@ export default function ChangeCount() {
   countChangeWays(totalCashValue, denominations);
   console.log(countChangeWays(totalCashValue, denominations));
 
+  const jeden = [2, 4, 5];
+  const trzy = 3;
+
+  console.log(jeden[0], jeden);
+
   return (
     <div>
       Total number of ways you can pay the total price is {totalCashValue}
