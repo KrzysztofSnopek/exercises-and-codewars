@@ -1,22 +1,29 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
 // Type a message and click “Send”. You will notice there is a three second delay before you see the “Sent!” alert. During this delay, you can see an “Undo” button. Click it. This “Undo” button is supposed to stop the “Sent!” message from appearing. It does this by calling clearTimeout for the timeout ID saved during handleSend. However, even after “Undo” is clicked, the “Sent!” message still appears. Find why it doesn’t work, and fix it.
 
 export default function Chat() {
   const [text, setText] = useState("");
   const [isSending, setIsSending] = useState(false);
+  const intervalRef = useRef("send");
   let timeoutID: any = null;
 
+  console.log(intervalRef.current);
+
   function handleSend() {
+    intervalRef.current = "send";
     setIsSending(true);
     timeoutID = setTimeout(() => {
-      alert("Sent!");
+      if (intervalRef.current === "send") {
+        alert("Sent!");
+      }
       setIsSending(false);
     }, 3000);
   }
 
   function handleUndo() {
+    intervalRef.current = "abort sending";
     setIsSending(false);
     clearTimeout(timeoutID);
   }
@@ -24,6 +31,7 @@ export default function Chat() {
   return (
     <>
       <input
+        className="text-slate-500"
         disabled={isSending}
         value={text}
         onChange={(e) => setText(e.target.value)}
