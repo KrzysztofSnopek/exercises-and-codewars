@@ -13,7 +13,9 @@ export default function Home() {
             <Link href="/refTasks/brokenChatInput">Broken chat input</Link>
           </li>
           <li className="p-2 list-decimal">
-            <Link href="/refTasks"></Link>
+            <Link href="/refTasks/failedRender">
+              Fixing a component failing to re-render
+            </Link>
           </li>
           <li className="p-2 list-decimal">
             <Link href="/refTasks"></Link>
