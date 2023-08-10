@@ -7,22 +7,22 @@ export default function Home() {
         <h1 className="text-center">Hello World</h1>
       </header>
       <div>
-        <ul>
-          <li>
+        <ol className="p-4">
+          <li className="p-2 list-decimal">
             <Link href="/todo">Checking next.js out with todo list</Link>
           </li>
-          <li>
+          <li className="p-2 list-decimal">
             <Link href="/changeCount">
               Function counting amount of possible change outcomes given the
               number and an array of coin denominations
             </Link>
           </li>
-          <li>
+          <li className="p-2 list-decimal">
             <Link href="/refTasks">
               Completing tasks with useRef as a main topic
             </Link>
           </li>
-        </ul>
+        </ol>
       </div>
     </>
   );

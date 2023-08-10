@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import createTodo from "@/app/utils/createTodo";
+import ReturnButton from "@/app/components/ReturnButton";
 
 export default function AddNew() {
   return (
@@ -29,6 +30,7 @@ export default function AddNew() {
           </button>
         </div>
       </form>
+      <ReturnButton />
     </>
   );
 }

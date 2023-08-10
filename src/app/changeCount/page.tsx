@@ -1,5 +1,6 @@
 import React from "react";
 import { countChangeWays } from "../exercises/changeCount";
+import ReturnButton from "../components/ReturnButton";
 
 export default function ChangeCount() {
   const totalCashValue: number = 300;
@@ -14,8 +15,11 @@ export default function ChangeCount() {
   console.log(jeden[0], jeden);
 
   return (
-    <div>
-      Total number of ways you can pay the total price is {totalCashValue}
-    </div>
+    <>
+      <div>
+        Total number of ways you can pay the total price is {totalCashValue}
+      </div>
+      <ReturnButton />
+    </>
   );
 }

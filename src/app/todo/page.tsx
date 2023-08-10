@@ -2,6 +2,7 @@ import Link from "next/link";
 import { TodoItem } from "../components/TodoItem";
 import toggleTodo from "../utils/toggleTodo";
 import getTodos from "../utils/getTodos";
+import ReturnButton from "../components/ReturnButton";
 
 export default async function Todo() {
   const todos = await getTodos();
@@ -28,6 +29,7 @@ export default async function Todo() {
           );
         })}
       </ul>
+      <ReturnButton />
     </>
   );
 }
