@@ -7,16 +7,26 @@ import { useState, useRef } from "react";
 
 export default function Chat() {
   const [text, setText] = useState("");
+  const textRef = useRef(text);
+
+  function handleInputChange(e: any) {
+    setText(e.target.value);
+    textRef.current = e.target.value;
+  }
 
   function handleSend() {
     setTimeout(() => {
-      alert("Sending: " + text);
+      alert("Sending: " + textRef.current);
     }, 3000);
   }
 
   return (
     <>
-      <input value={text} onChange={(e) => setText(e.target.value)} />
+      <input
+        className="text-slate-700"
+        value={text}
+        onChange={handleInputChange}
+      />
       <button className="p-2" onClick={handleSend}>
         Send
       </button>
