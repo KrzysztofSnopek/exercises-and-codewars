@@ -18,7 +18,9 @@ export default function Home() {
             </Link>
           </li>
           <li className="p-2 list-decimal">
-            <Link href="/refTasks"></Link>
+            <Link href="/refTasks/fixDebouncing">
+              Fixing broken debounce buttons
+            </Link>
           </li>
         </ol>
       </div>
