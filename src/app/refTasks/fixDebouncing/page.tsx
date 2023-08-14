@@ -2,9 +2,8 @@
 
 import ReturnButton from "@/app/components/ReturnButton";
 
-let timeoutID: any;
-
 function DebouncedButton({ onClick, children }: any) {
+  let timeoutID: any;
   return (
     <button
       className="p-2 border border-slate-300 text-slate-300 px-2 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
