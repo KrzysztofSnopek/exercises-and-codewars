@@ -22,6 +22,12 @@ export default function Home() {
               Fixing broken debounce buttons
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/refTasks/readLatestState">
+              Showing current input text rather than what it was at the time of
+              a click
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
