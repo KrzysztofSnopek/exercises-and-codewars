@@ -1,5 +1,6 @@
 "use client";
 
+import ReturnButton from "@/app/components/ReturnButton";
 // Make it so that clicking the “Search” button puts focus into the field.
 
 import { useRef } from "react";
@@ -24,6 +25,7 @@ export default function Page() {
         </button>
       </nav>
       <input placeholder="Looking for something?" ref={inputRef} />
+      <ReturnButton />
     </>
   );
 }
