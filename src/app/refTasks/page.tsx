@@ -28,6 +28,9 @@ export default function Home() {
               a click
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/refTasks/playVideo">Play and pause the video</Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
