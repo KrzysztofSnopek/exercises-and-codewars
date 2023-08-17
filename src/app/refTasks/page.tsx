@@ -31,6 +31,19 @@ export default function Home() {
           <li className="p-2 list-decimal">
             <Link href="/refTasks/playVideo">Play and pause the video</Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/refTasks/focusInput">Focus the search field</Link>
+          </li>
+          <li className="p-2 list-decimal">
+            <Link href="/refTasks/scrollImages">
+              Scrolling an image carousel
+            </Link>
+          </li>
+          <li className="p-2 list-decimal">
+            <Link href="/refTasks/focusInputSeparate">
+              Focus the search field with separate components
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
