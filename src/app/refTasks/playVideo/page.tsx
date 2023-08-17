@@ -22,7 +22,12 @@ export default function VideoPlayer() {
   return (
     <>
       <button onClick={handleClick}>{isPlaying ? "Pause" : "Play"}</button>
-      <video width="250" ref={videoRef}>
+      <video
+        width="250"
+        ref={videoRef}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      >
         <source
           src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
           type="video/mp4"
