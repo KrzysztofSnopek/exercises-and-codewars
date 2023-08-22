@@ -6,6 +6,7 @@
 
 import { useState, useEffect } from "react";
 import { initialTodos, createTodo } from "./todos.js";
+import ReturnButton from "@/app/components/ReturnButton.tsx";
 
 export type Todo = {
   id: number;
@@ -41,6 +42,7 @@ export default function TodoList() {
         ))}
       </ul>
       <footer className="p-2">{activeTodos.length} todos left</footer>
+      <ReturnButton />
     </>
   );
 }

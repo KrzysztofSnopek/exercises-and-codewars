@@ -15,7 +15,7 @@ export default function Home() {
             </Link>
           </li>
           <li className="p-2 list-decimal">
-            <Link href="/effectTasks/transformData">
+            <Link href="/effectTasks/cacheWithoutEffects">
               Cache a calculation without Effects
             </Link>
           </li>
