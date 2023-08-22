@@ -1,6 +1,6 @@
 let nextId = 0;
 
-export function createTodo(text: string, completed = false) {
+export function createTodo(text, completed = false) {
   return {
     id: nextId++,
     text,

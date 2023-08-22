@@ -16,41 +16,31 @@ type Todo = {
 export default function TodoList() {
   const [todos, setTodos] = useState(initialTodos);
   const [showActive, setShowActive] = useState(false);
-  const [activeTodos, setActiveTodos] = useState<Todo[]>([]);
-  const [visibleTodos, setVisibleTodos] = useState<Todo[]>([]);
-  const [footer, setFooter] = useState(null);
 
-  useEffect(() => {
-    setActiveTodos(todos.filter((todo) => !todo.completed));
-  }, [todos]);
-
-  useEffect(() => {
-    setVisibleTodos(showActive ? activeTodos : todos);
-  }, [showActive, todos, activeTodos]);
-
-  useEffect(() => {
-    setFooter(<footer>{activeTodos.length} todos left</footer>);
-  }, [activeTodos]);
+  const activeTodos = todos.filter((todo) => !todo.completed);
+  const visibleTodos = showActive ? activeTodos : todos;
 
   return (
     <>
-      <label>
-        <input
-          type="checkbox"
-          checked={showActive}
-          onChange={(e) => setShowActive(e.target.checked)}
-        />
-        Show only active todos
-      </label>
-      <NewTodo onAdd={(newTodo: Todo) => setTodos([...todos, newTodo])} />
+      <div className="flex flex-col w-1/9">
+        <label className="p-2">
+          <input
+            type="checkbox"
+            checked={showActive}
+            onChange={(e) => setShowActive(e.target.checked)}
+          />
+          Show only active todos
+        </label>
+        <NewTodo onAdd={(newTodo: Todo) => setTodos([...todos, newTodo])} />
+      </div>
       <ul>
         {visibleTodos.map((todo) => (
-          <li key={todo.id}>
+          <li key={todo.id} className="pl-2">
             {todo.completed ? <s>{todo.text}</s> : todo.text}
           </li>
         ))}
       </ul>
-      {footer}
+      <footer className="p-2">{activeTodos.length} todos left</footer>
     </>
   );
 }
@@ -64,9 +54,13 @@ function NewTodo({ onAdd }: any) {
   }
 
   return (
-    <>
-      <input value={text} onChange={(e) => setText(e.target.value)} />
+    <div className="flex">
+      <input
+        className="m-2"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
       <button onClick={handleAddClick}>Add</button>
-    </>
+    </div>
   );
 }
