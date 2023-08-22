@@ -14,6 +14,11 @@ export default function Home() {
               Transform data so that you can get rid of unnecessary useEffects
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/transformData">
+              Cache a calculation without Effects
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />

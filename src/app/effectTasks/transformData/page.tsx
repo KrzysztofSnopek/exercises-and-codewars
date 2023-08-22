@@ -7,7 +7,7 @@
 import { useState, useEffect } from "react";
 import { initialTodos, createTodo } from "./todos.js";
 
-type Todo = {
+export type Todo = {
   id: number;
   text: string;
   completed: boolean;
