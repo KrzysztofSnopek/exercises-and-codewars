@@ -22,6 +22,11 @@ export default function Home() {
               Completing tasks with useRef as a main topic
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks">
+              Refactoring code to get rid of useEffects
+            </Link>
+          </li>
         </ol>
       </div>
     </>
