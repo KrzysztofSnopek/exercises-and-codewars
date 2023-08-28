@@ -19,6 +19,11 @@ export default function Home() {
               Cache a calculation without Effects
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/formWithoutEffects">
+              Submit a form without Effects
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />

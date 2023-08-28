@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { initialTodos, createTodo, getVisibleTodos } from "./todos.js";
 import { Todo } from "../transformData/page.jsx";
 
