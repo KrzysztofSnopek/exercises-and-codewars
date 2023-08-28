@@ -10,18 +10,13 @@ import { useState, useEffect } from "react";
 // What’s the root cause of this problem? And how can you fix it?
 
 export default function Form() {
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(false);
   const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    if (!showForm) {
-      sendMessage(message);
-    }
-  }, [showForm, message]);
 
   function handleSubmit(e: any) {
     e.preventDefault();
     setShowForm(false);
+    sendMessage(message);
   }
 
   if (!showForm) {
