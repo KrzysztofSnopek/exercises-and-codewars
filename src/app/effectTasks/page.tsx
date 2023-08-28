@@ -24,6 +24,11 @@ export default function Home() {
               Submit a form without Effects
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/fixReconnecting">
+              Fix reconnecting on keystroke
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
