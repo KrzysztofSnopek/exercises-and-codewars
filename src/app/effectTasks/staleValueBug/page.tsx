@@ -1,23 +1,27 @@
 "use client";
 
 import ReturnButton from "@/app/components/ReturnButton";
-// In this example, an Effect subscribes to the window pointermove event to move a pink dot on the screen. Try hovering over the preview area (or touching the screen if you’re on a mobile device), and see how the pink dot follows your movement.
-
-// There is also a checkbox. Ticking the checkbox toggles the canMove state variable, but this state variable is not used anywhere in the code. Your task is to change the code so that when canMove is false (the checkbox is ticked off), the dot should stop moving. After you toggle the checkbox back on (and set canMove to true), the box should follow the movement again. In other words, whether the dot can move or not should stay synchronized to whether the checkbox is checked.
-
 import { useState, useEffect } from "react";
+
+// In this example, the pink dot should move when the checkbox is on, and should stop moving when the checkbox is off. The logic for this has already been implemented: the handleMove event handler checks the canMove state variable.
+
+// However, for some reason, the canMove state variable inside handleMove appears to be “stale”: it’s always true, even after you tick off the checkbox. How is this possible? Find the mistake in the code and fix it.
 
 export default function App() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [canMove, setCanMove] = useState(true);
 
-  useEffect(() => {
-    function handleMove(e: PointerEvent) {
+  function handleMove(e: PointerEvent) {
+    if (canMove) {
       setPosition({ x: e.clientX, y: e.clientY });
     }
-    canMove && window.addEventListener("pointermove", handleMove);
+  }
+
+  useEffect(() => {
+    window.addEventListener("pointermove", handleMove);
     return () => window.removeEventListener("pointermove", handleMove);
-  }, [canMove]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

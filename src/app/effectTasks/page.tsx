@@ -34,6 +34,11 @@ export default function Home() {
               Switching synchronization on and off
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/staleValueBug">
+              Investigating a stale value bug
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
