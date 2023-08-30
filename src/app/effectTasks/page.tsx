@@ -29,6 +29,11 @@ export default function Home() {
               Fix reconnecting on keystroke
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/switchSynchro">
+              Switching synchronization on and off
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
