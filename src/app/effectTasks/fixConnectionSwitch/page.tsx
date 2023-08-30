@@ -25,6 +25,7 @@ export default function App() {
           <option value="music">music</option>
         </select>
       </label>
+      <br />
       <label>
         <input
           type="checkbox"
@@ -36,6 +37,7 @@ export default function App() {
       <hr />
       <ChatRoom
         roomId={roomId}
+        isEncrypted={isEncrypted}
         createConnection={
           isEncrypted ? createEncryptedConnection : createUnencryptedConnection
         }
