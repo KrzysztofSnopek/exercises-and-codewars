@@ -39,6 +39,11 @@ export default function Home() {
               Investigating a stale value bug
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/fixConnectionSwitch">
+              Fix a connection switch
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
