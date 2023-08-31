@@ -41,6 +41,21 @@ export default function Page() {
     };
   }, []);
 
+  useEffect(() => {
+    let ignore = false;
+    planetId &&
+      fetchData(`/planets/${planetId}/places`).then((result: any) => {
+        if (!ignore) {
+          console.log("Fetched a list of places.");
+          setPlaceList(result);
+          setPlaceId(result[0].id); // Select the first planet
+        }
+      });
+    return () => {
+      ignore = true;
+    };
+  }, [planetId]);
+
   return (
     <>
       <label>
