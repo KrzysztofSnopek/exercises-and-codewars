@@ -49,6 +49,11 @@ export default function Home() {
               Populate a chain of boxes
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/fixVariable">
+              Fix a variable that doesn't update
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
