@@ -12,25 +12,35 @@ export default function Timer() {
   const [count, setCount] = useState(0);
   const [increment, setIncrement] = useState(1);
 
+  const onTick = useEffectEvent(() => {
+    setCount((c) => c + increment);
+  });
+
   useEffect(() => {
     const id = setInterval(() => {
-      setCount((c) => c + increment);
+      onTick();
     }, 1000);
     return () => {
       clearInterval(id);
     };
-  }, [increment]);
+  }, []);
 
   return (
     <>
       <h1>
         Counter: {count}
-        <button onClick={() => setCount(0)}>Reset</button>
+        <button
+          className="m-2 p-1 border border-slate-300 text-slate-300 px-2 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
+          onClick={() => setCount(0)}
+        >
+          Reset
+        </button>
       </h1>
       <hr />
       <p>
         Every second, increment by:
         <button
+          className="m-2 p-1 border border-slate-300 text-slate-300 px-2 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
           disabled={increment === 0}
           onClick={() => {
             setIncrement((i) => i - 1);
@@ -40,6 +50,8 @@ export default function Timer() {
         </button>
         <b>{increment}</b>
         <button
+          className="m-2 p-1 border border-slate-300 text-slate-300 px-2 rounded
+        hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
           onClick={() => {
             setIncrement((i) => i + 1);
           }}
