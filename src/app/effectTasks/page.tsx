@@ -54,6 +54,11 @@ export default function Home() {
               Fix a variable that doesn't update
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/freezingCounter">
+              Fix a freezing counter
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
