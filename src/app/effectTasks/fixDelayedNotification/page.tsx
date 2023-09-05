@@ -15,7 +15,7 @@ import { showNotification } from "./notifications.ts";
 const serverUrl = "https://localhost:1234";
 
 function ChatRoom({ roomId, theme }: { roomId: string; theme: string }) {
-  const onConnected = useEffectEvent(() => {
+  const onConnected = useEffectEvent((roomId: string) => {
     showNotification("Welcome to " + roomId, theme);
   });
 
@@ -23,7 +23,7 @@ function ChatRoom({ roomId, theme }: { roomId: string; theme: string }) {
     const connection = createConnection(serverUrl, roomId);
     connection.on("connected", () => {
       setTimeout(() => {
-        onConnected();
+        onConnected(roomId);
       }, 2000);
     });
     connection.connect();
@@ -40,19 +40,25 @@ export default function App() {
     <>
       <label>
         Choose the chat room:{" "}
-        <select value={roomId} onChange={(e) => setRoomId(e.target.value)}>
+        <select
+          value={roomId}
+          onChange={(e) => setRoomId(e.target.value)}
+          className="text-slate-700"
+        >
           <option value="general">general</option>
           <option value="travel">travel</option>
           <option value="music">music</option>
         </select>
       </label>
+      <br />
       <label>
+        Use dark theme
         <input
+          className="m-2"
           type="checkbox"
           checked={isDark}
           onChange={(e) => setIsDark(e.target.checked)}
         />
-        Use dark theme
       </label>
       <hr />
       <ChatRoom roomId={roomId} theme={isDark ? "dark" : "light"} />
