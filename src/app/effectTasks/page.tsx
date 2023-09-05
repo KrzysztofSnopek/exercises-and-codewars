@@ -59,6 +59,11 @@ export default function Home() {
               Fix a freezing counter
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/fixNonAdjustableDelay">
+              Fix a non-adjustable delay
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
