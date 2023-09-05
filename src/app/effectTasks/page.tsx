@@ -64,6 +64,11 @@ export default function Home() {
               Fix a non-adjustable delay
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/fixDelayedNotification">
+              Fix a delayed notification
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
