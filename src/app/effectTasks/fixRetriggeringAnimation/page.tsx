@@ -12,13 +12,17 @@ import ReturnButton from "@/app/components/ReturnButton";
 function Welcome({ duration }: { duration: number }) {
   const ref = useRef(null);
 
+  const onAnimation = useEffectEvent((animation: FadeInAnimation) => {
+    animation.start(duration);
+  });
+
   useEffect(() => {
     const animation = new FadeInAnimation(ref.current);
-    animation.start(duration);
+    onAnimation(animation);
     return () => {
       animation.stop();
     };
-  }, [duration]);
+  }, []);
 
   return (
     <h1
