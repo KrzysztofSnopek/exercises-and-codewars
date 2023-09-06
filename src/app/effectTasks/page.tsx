@@ -69,6 +69,11 @@ export default function Home() {
               Fix a delayed notification
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/fixResettingInterval">
+              Fix a resetting interval
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />

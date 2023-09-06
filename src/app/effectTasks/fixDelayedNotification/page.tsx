@@ -9,7 +9,7 @@
 import ReturnButton from "../../components/ReturnButton.tsx";
 import { useState, useEffect } from "react";
 import { experimental_useEffectEvent as useEffectEvent } from "react";
-import { createConnection, sendMessage } from "./chat.ts";
+import { createConnection } from "./chat.ts";
 import { showNotification } from "./notifications.ts";
 
 const serverUrl = "https://localhost:1234";
