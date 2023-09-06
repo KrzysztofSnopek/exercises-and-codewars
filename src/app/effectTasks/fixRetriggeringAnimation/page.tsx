@@ -1,5 +1,9 @@
 "use client";
 
+// In this example, when you press “Show”, a welcome message fades in. The animation takes a second. When you press “Remove”, the welcome message immediately disappears. The logic for the fade-in animation is implemented in the animation.js file as plain JavaScript animation loop. You don’t need to change that logic. You can treat it as a third-party library. Your Effect creates an instance of FadeInAnimation for the DOM node, and then calls start(duration) or stop() to control the animation. The duration is controlled by a slider. Adjust the slider and see how the animation changes.
+
+// This code already works, but there is something you want to change. Currently, when you move the slider that controls the duration state variable, it retriggers the animation. Change the behavior so that the Effect does not “react” to the duration variable. When you press “Show”, the Effect should use the current duration on the slider. However, moving the slider itself should not by itself retrigger the animation.
+
 import { useState, useEffect, useRef } from "react";
 import { experimental_useEffectEvent as useEffectEvent } from "react";
 import { FadeInAnimation } from "./animation.ts";

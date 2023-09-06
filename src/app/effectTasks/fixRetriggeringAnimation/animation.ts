@@ -1,8 +1,13 @@
 export class FadeInAnimation {
-  constructor(node) {
+  private node: HTMLElement | null;
+  private duration: number = 0;
+  private startTime: number | null = null;
+  private frameId: number | null = null;
+
+  constructor(node: any) {
     this.node = node;
   }
-  start(duration) {
+  start(duration: number) {
     this.duration = duration;
     if (this.duration === 0) {
       // Jump to end immediately
@@ -15,6 +20,7 @@ export class FadeInAnimation {
     }
   }
   onFrame() {
+    if (this.startTime === null) return;
     const timePassed = performance.now() - this.startTime;
     const progress = Math.min(timePassed / this.duration, 1);
     this.onProgress(progress);
@@ -23,11 +29,15 @@ export class FadeInAnimation {
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
   }
-  onProgress(progress) {
-    this.node.style.opacity = progress;
+  onProgress(progress: number) {
+    if (this.node) {
+      this.node.style.opacity = progress.toString();
+    }
   }
   stop() {
-    cancelAnimationFrame(this.frameId);
+    if (this.frameId !== null) {
+      cancelAnimationFrame(this.frameId);
+    }
     this.startTime = null;
     this.frameId = null;
     this.duration = 0;
