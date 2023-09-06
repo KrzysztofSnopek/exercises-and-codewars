@@ -74,6 +74,11 @@ export default function Home() {
               Fix a resetting interval
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/fixRetriggeringAnimation">
+              Fix a retriggering animation
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
