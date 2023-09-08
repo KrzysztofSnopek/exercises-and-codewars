@@ -5,7 +5,7 @@
 // Treat chat.js as an external third-party library: you can consult it to check its API, but don’t edit it.
 
 import { useState } from "react";
-import ChatRoom from "./ChatRoom.ts";
+import ChatRoom from "./ChatRoom.tsx";
 import ReturnButton from "@/app/components/ReturnButton.tsx";
 
 export default function App() {
