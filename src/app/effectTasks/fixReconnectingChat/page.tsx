@@ -13,31 +13,38 @@ export default function App() {
   const [roomId, setRoomId] = useState("general");
   const [serverUrl, setServerUrl] = useState("https://localhost:1234");
 
-  const options = {
-    serverUrl: serverUrl,
-    roomId: roomId,
-  };
-
   return (
-    <div className={isDark ? "dark" : "light"}>
-      <button onClick={() => setIsDark(!isDark)}>Toggle theme</button>
+    <div className={isDark ? "bg-slate-700" : "bg-slate-900"}>
+      <button
+        onClick={() => setIsDark(!isDark)}
+        className="m-2 p-2 border border-slate-300 text-slate-300 px-2 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
+      >
+        Toggle theme
+      </button>
+      <br />
       <label>
         Server URL:{" "}
         <input
+          className="text-slate-700 m-2"
           value={serverUrl}
           onChange={(e) => setServerUrl(e.target.value)}
         />
       </label>
+      <br />
       <label>
         Choose the chat room:{" "}
-        <select value={roomId} onChange={(e) => setRoomId(e.target.value)}>
+        <select
+          value={roomId}
+          onChange={(e) => setRoomId(e.target.value)}
+          className="text-slate-700 m-2"
+        >
           <option value="general">general</option>
           <option value="travel">travel</option>
           <option value="music">music</option>
         </select>
       </label>
       <hr />
-      <ChatRoom options={options} />
+      <ChatRoom serverUrl={serverUrl} roomId={roomId} />
       <ReturnButton />
     </div>
   );
