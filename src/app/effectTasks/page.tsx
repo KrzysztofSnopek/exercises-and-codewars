@@ -79,6 +79,11 @@ export default function Home() {
               Fix a retriggering animation
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/effectTasks/fixReconnectingChat">
+              Fix a reconnecting chat
+            </Link>
+          </li>
         </ol>
       </div>
       <ReturnButton />
