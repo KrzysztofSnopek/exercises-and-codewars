@@ -1,4 +1,10 @@
-export function createEncryptedConnection({ serverUrl, roomId }) {
+export function createEncryptedConnection({
+  serverUrl,
+  roomId,
+}: {
+  serverUrl: string;
+  roomId: string;
+}) {
   // A real implementation would actually connect to the server
   if (typeof serverUrl !== "string") {
     throw Error("Expected serverUrl to be a string. Received: " + serverUrl);
@@ -6,8 +12,8 @@ export function createEncryptedConnection({ serverUrl, roomId }) {
   if (typeof roomId !== "string") {
     throw Error("Expected roomId to be a string. Received: " + roomId);
   }
-  let intervalId;
-  let messageCallback;
+  let intervalId: NodeJS.Timeout | undefined;
+  let messageCallback: ((message: string) => void) | null = null;
   return {
     connect() {
       console.log('✅ 🔐 Connecting to "' + roomId + '" room... (encrypted)');
@@ -27,7 +33,7 @@ export function createEncryptedConnection({ serverUrl, roomId }) {
       messageCallback = null;
       console.log('❌ 🔐 Disconnected from "' + roomId + '" room (encrypted)');
     },
-    on(event, callback) {
+    on(event: string, callback: (message: string) => void) {
       if (messageCallback) {
         throw Error("Cannot add the handler twice.");
       }
@@ -39,7 +45,13 @@ export function createEncryptedConnection({ serverUrl, roomId }) {
   };
 }
 
-export function createUnencryptedConnection({ serverUrl, roomId }) {
+export function createUnencryptedConnection({
+  serverUrl,
+  roomId,
+}: {
+  serverUrl: string;
+  roomId: string;
+}) {
   // A real implementation would actually connect to the server
   if (typeof serverUrl !== "string") {
     throw Error("Expected serverUrl to be a string. Received: " + serverUrl);
@@ -47,8 +59,8 @@ export function createUnencryptedConnection({ serverUrl, roomId }) {
   if (typeof roomId !== "string") {
     throw Error("Expected roomId to be a string. Received: " + roomId);
   }
-  let intervalId;
-  let messageCallback;
+  let intervalId: NodeJS.Timeout | undefined;
+  let messageCallback: ((message: string) => void) | null = null;
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room (unencrypted)...');
@@ -68,7 +80,7 @@ export function createUnencryptedConnection({ serverUrl, roomId }) {
       messageCallback = null;
       console.log('❌ Disconnected from "' + roomId + '" room (unencrypted)');
     },
-    on(event, callback) {
+    on(event: string, callback: (message: string) => void) {
       if (messageCallback) {
         throw Error("Cannot add the handler twice.");
       }

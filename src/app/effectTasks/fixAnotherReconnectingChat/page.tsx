@@ -7,13 +7,13 @@
 // Don’t change any code in chat.js. Other than that, you can change any code as long as it results in the same behavior. For example, you may find it helpful to change which props are being passed down.
 
 import { useState } from "react";
-import ChatRoom from "./ChatRoom.js";
+import ChatRoom from "./ChatRoom.tsx";
 import {
   createEncryptedConnection,
   createUnencryptedConnection,
-} from "./chat.js";
-import { showNotification } from "./notifications.js";
-import ReturnButton from "@/app/components/ReturnButton.jsx";
+} from "./chat.ts";
+import { showNotification } from "./notifications.ts";
+import ReturnButton from "@/app/components/ReturnButton.tsx";
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
@@ -24,23 +24,31 @@ export default function App() {
     <>
       <label>
         <input
+          className="m-2"
           type="checkbox"
           checked={isDark}
           onChange={(e) => setIsDark(e.target.checked)}
         />
         Use dark theme
       </label>
+      <br />
       <label>
         <input
+          className="m-2"
           type="checkbox"
           checked={isEncrypted}
           onChange={(e) => setIsEncrypted(e.target.checked)}
         />
         Enable encryption
       </label>
+      <br />
       <label>
         Choose the chat room:{" "}
-        <select value={roomId} onChange={(e) => setRoomId(e.target.value)}>
+        <select
+          value={roomId}
+          onChange={(e) => setRoomId(e.target.value)}
+          className="text-slate-700 m-2"
+        >
           <option value="general">general</option>
           <option value="travel">travel</option>
           <option value="music">music</option>
@@ -49,7 +57,7 @@ export default function App() {
       <hr />
       <ChatRoom
         roomId={roomId}
-        onMessage={(msg) => {
+        onMessage={(msg: string) => {
           showNotification("New message: " + msg, isDark ? "dark" : "light");
         }}
         createConnection={() => {
