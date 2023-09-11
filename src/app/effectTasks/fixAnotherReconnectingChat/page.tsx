@@ -60,17 +60,7 @@ export default function App() {
         onMessage={(msg: string) => {
           showNotification("New message: " + msg, isDark ? "dark" : "light");
         }}
-        createConnection={() => {
-          const options = {
-            serverUrl: "https://localhost:1234",
-            roomId: roomId,
-          };
-          if (isEncrypted) {
-            return createEncryptedConnection(options);
-          } else {
-            return createUnencryptedConnection(options);
-          }
-        }}
+        isEncrypted={isEncrypted}
       />
       <ReturnButton />
     </>
