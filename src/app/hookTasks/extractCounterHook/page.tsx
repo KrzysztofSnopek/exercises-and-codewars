@@ -8,15 +8,9 @@
 // }
 // You’ll need to write your custom Hook in useCounter.js and import it into the Counter.js file.
 
-import { useState, useEffect } from "react";
+import useCounter from "./useCounter";
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => {
-      setCount((c) => c + 1);
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
+  const count = useCounter();
   return <h1>Seconds passed: {count}</h1>;
 }
