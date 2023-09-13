@@ -4,10 +4,11 @@
 
 import { useState } from "react";
 import { useCounter } from "./useCounter.ts";
+import ReturnButton from "@/app/components/ReturnButton.tsx";
 
 export default function Counter() {
-  const [delay, setDelay] = useState(1000);
-  const count = useCounter();
+  const [delay, setDelay] = useState<number>(1000);
+  const count = useCounter(delay);
   return (
     <>
       <label>
@@ -23,6 +24,7 @@ export default function Counter() {
       </label>
       <hr />
       <h1>Ticks: {count}</h1>
+      <ReturnButton />
     </>
   );
 }
