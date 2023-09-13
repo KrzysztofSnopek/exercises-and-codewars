@@ -10,7 +10,6 @@
 //   return count;
 // }
 
-import { useState } from "react";
 import { useCounter } from "./useCounter.ts";
 
 export default function Counter() {
