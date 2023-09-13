@@ -8,9 +8,15 @@
 // }
 // You’ll need to write your custom Hook in useCounter.js and import it into the Counter.js file.
 
+import ReturnButton from "@/app/components/ReturnButton";
 import useCounter from "./useCounter";
 
 export default function Counter() {
   const count = useCounter();
-  return <h1>Seconds passed: {count}</h1>;
+  return (
+    <>
+      <h1>Seconds passed: {count}</h1>
+      <ReturnButton />
+    </>
+  );
 }
