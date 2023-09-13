@@ -27,6 +27,9 @@ export default function Home() {
               Refactoring code to get rid of useEffects
             </Link>
           </li>
+          <li className="p-2 list-decimal">
+            <Link href="/hookTasks">Reusing Logic with Custom Hooks</Link>
+          </li>
         </ol>
       </div>
     </>
