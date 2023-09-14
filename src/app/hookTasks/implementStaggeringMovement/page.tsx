@@ -9,19 +9,27 @@ import ReturnButton from "@/app/components/ReturnButton.tsx";
 
 // After you implement useDelayedValue, you should see the dots move following one another.
 
-import { usePointerPosition } from "./usePointerPosition.ts";
+import { Position, usePointerPosition } from "./usePointerPosition.ts";
+import { useState, useEffect } from "react";
 
-function useDelayedValue(value: any, delay: number) {
-  // TODO: Implement this Hook
-  return value;
+function useDelayedValue(value: Position, delay: number) {
+  const [delayedValue, setDelayedValue] = useState<Position>(value);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDelayedValue(value);
+    }, delay);
+  });
+
+  return delayedValue;
 }
 
 export default function Canvas() {
   const pos1 = usePointerPosition();
   const pos2 = useDelayedValue(pos1, 100);
-  const pos3 = useDelayedValue(pos2, 200);
+  const pos3 = useDelayedValue(pos2, 100);
   const pos4 = useDelayedValue(pos3, 100);
-  const pos5 = useDelayedValue(pos3, 50);
+  const pos5 = useDelayedValue(pos4, 50);
   return (
     <>
       <Dot position={pos1} opacity={1} />
@@ -45,7 +53,7 @@ function Dot({
     <div
       style={{
         position: "absolute",
-        backgroundColor: "pink",
+        backgroundColor: "lightblue",
         borderRadius: "50%",
         opacity,
         transform: `translate(${position.x}px, ${position.y}px)`,

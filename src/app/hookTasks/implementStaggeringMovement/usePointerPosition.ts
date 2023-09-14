@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
-import { CursorPos } from "readline";
+
+export type Position = {
+  x: number;
+  y: number;
+};
 
 export function usePointerPosition() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
   useEffect(() => {
     function handleMove(e: PointerEvent) {
       setPosition({ x: e.clientX, y: e.clientY });
