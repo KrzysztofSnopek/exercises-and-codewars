@@ -32,7 +32,7 @@ export default function Counter() {
 
   return (
     <div>
-      <h1>Seconds passed: {count}</h1>
+      <h1 className="text-slate-700">Seconds passed: {count}</h1>
       <ReturnButton />
     </div>
   );
